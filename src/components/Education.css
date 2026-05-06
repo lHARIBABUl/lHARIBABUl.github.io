@@ -1,0 +1,207 @@
+/* Education & Certificates Section Styles */
+#education {
+    background-color: #050505;
+    position: relative;
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+/* Section Divider */
+.section-divider {
+    width: 60px;
+    height: 4px;
+    background: #5227FF;
+    margin: 30px 0 40px;
+    border-radius: 2px;
+}
+
+/* Two Column Layout */
+.education-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+@media (max-width: 991px) {
+    .education-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+
+/* --- Timeline Styles (Education) --- */
+.edu-timeline {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.edu-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 30px;
+}
+
+.edu-dot {
+    position: absolute;
+    left: -29px;
+    /* Aligns with border-left line */
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: #050505;
+    border: 3px solid #5227FF;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(82, 39, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.edu-item:hover .edu-dot {
+    background: #5227FF;
+    box-shadow: 0 0 20px rgba(82, 39, 255, 0.8);
+    transform: scale(1.2);
+}
+
+.edu-card {
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.edu-item:hover .edu-card {
+    transform: translateX(10px);
+    border-color: rgba(82, 39, 255, 0.3);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.edu-degree {
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.edu-institution {
+    color: #5227FF;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.edu-year {
+    color: #71717a;
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+/* --- Certificate Grid (Certificates) --- */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.cert-card {
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2px;
+    /* Border space for glow */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.cert-content {
+    background: #0a0a0a;
+    border-radius: 14px;
+    padding: 25px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Certificate Glow */
+.cert-card::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(82, 39, 255, 0.3), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.cert-card:hover::before {
+    opacity: 1;
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+}
+
+.cert-icon {
+    font-size: 2rem;
+    color: #5227FF;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.cert-card:hover .cert-icon {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 10px rgba(82, 39, 255, 0.6));
+}
+
+.cert-title {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.cert-issuer {
+    color: #a1a1aa;
+    font-size: 0.85rem;
+}
+
+/* Text Animations */
+.edu-degree,
+.cert-title {
+    transition: background-position 0.4s ease;
+    background: linear-gradient(to right, #ffffff, #a1a1aa, #5227FF, #ffffff);
+    background-size: 300% 100%;
+    background-position: 0% 0%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+}
+
+.edu-item:hover .edu-degree,
+.cert-card:hover .cert-title {
+    background-position: 100% 0%;
+}
+
+.edu-institution,
+.edu-year,
+.cert-issuer {
+    transition: all 0.3s ease;
+}
+
+.edu-item:hover .edu-institution,
+.cert-card:hover .cert-issuer {
+    transform: translateX(3px);
+    color: #e4e4e7;
+}

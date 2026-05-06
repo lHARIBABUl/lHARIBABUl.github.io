@@ -1,0 +1,44 @@
+.burst-text {
+    display: inline-block;
+}
+
+.burst-char {
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+    animation: burstIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes burstIn {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(10deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .burst-char {
+        animation: fadeIn 0.3s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}

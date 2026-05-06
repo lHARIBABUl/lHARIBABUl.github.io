@@ -1,0 +1,20 @@
+.footer-section {
+    background-color: #050505;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.copyright-text {
+    color: rgba(208, 208, 208, 0.6);
+    font-size: 0.85rem;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}

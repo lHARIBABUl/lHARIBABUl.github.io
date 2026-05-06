@@ -1,0 +1,237 @@
+/* Hero Section Animations */
+
+/* Fade in and slide up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in and scale animation for image */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Fade in from left */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade in from right */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation classes - maintain layout space */
+.hero-title {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.hero-subtitle {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.hero-image {
+    animation: fadeInScale 1s ease-out 0.3s forwards;
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.hero-counter-item {
+    animation: fadeInLeft 0.8s ease-out forwards;
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.hero-counter-item:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.hero-counter-item:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.hero-counter-item:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.hero-bio {
+    animation: fadeInRight 0.8s ease-out 0.5s forwards;
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+.hero-contact {
+    animation: fadeInRight 0.8s ease-out 0.7s forwards;
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+/* Prevent scroll jump on page load */
+.rpp-banner-five-area {
+    height: auto;
+    padding-bottom: 90px;
+    overflow: hidden;
+}
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-title,
+    .hero-subtitle,
+    .hero-image,
+    .hero-counter-item,
+    .hero-bio,
+    .hero-contact {
+        animation: simpleFadeIn 0.3s ease-in forwards;
+    }
+
+    @keyframes simpleFadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+/* Wave Line Running Light Animation */
+.wave-path-light {
+    stroke-dasharray: 100 2000;
+    /* Short light segment, long gap */
+    stroke-dashoffset: 2100;
+    /* Start off-screen */
+    animation: flowLight 4s linear infinite;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+    will-change: stroke-dashoffset;
+}
+
+.wave-path-light:nth-of-type(4) {
+    /* Target the second light path */
+    animation-delay: 2s;
+    /* Stagger the lights */
+    stroke: #e0ccff;
+    /* Slightly different tint */
+}
+
+@keyframes flowLight {
+    to {
+        stroke-dashoffset: -100;
+        /* Move past the end */
+    }
+}
+
+.phone-link {
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    color: #d0d0d0 !important;
+    opacity: 0.7;
+    display: inline-block;
+}
+
+.phone-link:hover {
+    color: #5227FF !important;
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+/* Mobile Style for Phone Link - Button with no tap highlight */
+@media (max-width: 768px) {
+    .phone-link,
+    .phone-link:link,
+    .phone-link:visited,
+    .phone-link:focus,
+    .phone-link:hover {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        background: #5227FF !important;
+        color: #ffffff !important;
+        padding: 12px 25px !important;
+        border-radius: 50px;
+        font-weight: 700 !important;
+        margin-top: 15px;
+        box-shadow: 0 4px 15px rgba(82, 39, 255, 0.4);
+        opacity: 1 !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 14px !important;
+        text-decoration: none !important;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        outline: none !important;
+    }
+
+    .phone-link:active {
+        transform: scale(0.95) !important;
+        background: #5227FF !important;
+        color: #ffffff !important;
+        opacity: 1 !important;
+        box-shadow: 0 2px 10px rgba(82, 39, 255, 0.3) !important;
+    }
+}
+
+/* Premium Name Styling */
+.hero-name-premium {
+    color: #5227FF;
+    text-shadow: 0 4px 20px rgba(82, 39, 255, 0.5), 0 0 40px rgba(0, 0, 0, 0.8);
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+@media (max-width: 575px) {
+    .hero-title span {
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero-name-premium {
+        /* Aligning with 'Hi, I am' while keeping the premium style */
+        vertical-align: baseline;
+        line-height: 1.2;
+    }
+}
+
+
+
+
